@@ -36,66 +36,92 @@ document.querySelectorAll("a, button, .tile, .fpill, .project-card, .feature-car
   });
 });
 
-// ============ SVG CONSTELLATION LINES SETUP ============
-const lines = document.querySelectorAll(".constellation-lines path");
-lines.forEach((path) => {
-  const length = path.getTotalLength();
-  path.style.strokeDasharray = length;
-  path.style.strokeDashoffset = length;
+// ============ REDESIGNED STORY & SKILLS ECOSYSTEM INTERACTIONS ============
+
+// 1. Dynamic Live Skill Inspector HUD
+const hudStatus = document.getElementById("hudStatus");
+const hudLevel = document.getElementById("hudLevel");
+const hudTitle = document.getElementById("hudTitle");
+const hudDesc = document.getElementById("hudDesc");
+const allSkillPills = document.querySelectorAll(".skill-pill");
+
+if (allSkillPills.length > 0 && hudTitle) {
+  allSkillPills.forEach((pill) => {
+    pill.addEventListener("mouseenter", () => {
+      const name = pill.dataset.name || pill.textContent.trim();
+      const cat = pill.dataset.cat || "Architecture";
+      const desc = pill.dataset.desc || "Enterprise-ready framework for scalable digital applications.";
+      const exp = pill.dataset.exp || "Production Ready";
+
+      allSkillPills.forEach(p => p.classList.remove("is-active"));
+      pill.classList.add("is-active");
+
+      if (hudStatus) hudStatus.textContent = `${cat.toUpperCase()} RADAR`;
+      if (hudLevel) hudLevel.textContent = exp;
+      if (hudTitle) hudTitle.textContent = name;
+      if (hudDesc) hudDesc.textContent = desc;
+
+      gsap.fromTo(
+        [hudTitle, hudDesc],
+        { opacity: 0.3, y: 3 },
+        { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }
+      );
+    });
+  });
+}
+
+// 2. Interactive Category Filter Nav
+const filterButtons = document.querySelectorAll(".filter-btn");
+const skillRows = document.querySelectorAll(".skill-cat-row");
+
+filterButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    filterButtons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const filter = btn.dataset.filter;
+
+    skillRows.forEach((row) => {
+      const rowCat = row.dataset.cat;
+      if (filter === "all" || rowCat === filter) {
+        row.classList.remove("dimmed");
+        gsap.to(row, { opacity: 1, scale: 1, duration: 0.35, ease: "power2.out" });
+        gsap.fromTo(
+          row.querySelectorAll(".skill-pill"),
+          { scale: 0.88, opacity: 0.7 },
+          { scale: 1, opacity: 1, stagger: 0.02, duration: 0.4, ease: "back.out(1.6)" }
+        );
+      } else {
+        row.classList.add("dimmed");
+        gsap.to(row, { opacity: 0.25, scale: 0.98, duration: 0.35, ease: "power2.out" });
+      }
+    });
+  });
 });
 
-// Map nodes to connected SVG line IDs for interactive highlights
-const nodeLineMap = {
-  "tile-lock": ["line-lock-mint", "line-lock-yellow"],
-  "tile-expand": ["line-lock-mint", "line-mint-center"],
-  "tile-chart": ["line-lock-yellow", "line-yellow-center"],
-  "tile-cloud": ["line-cloud-center"],
-  "tile-db": ["line-mint-center", "line-yellow-center", "line-cloud-center", "line-thumb-center", "line-center-person", "line-center-globe"],
-  "tile-thumb": ["line-thumb-center"],
-  "tile-cursor": ["line-cursor-person"],
-  "tile-person": ["line-center-person", "line-cursor-person", "line-person-hex"],
-  "tile-globe": ["line-center-globe", "line-thumbpill-globe", "line-globe-hex"],
-  "tile-thumbpill": ["line-thumbpill-globe"],
-  "tile-hex": ["line-person-hex", "line-globe-hex"]
-};
-
-// Node Tooltip & Path Highlight Interaction
-const tooltip = document.getElementById("nodeTooltip");
-const tooltipBadge = document.getElementById("tooltipBadge");
-const tooltipTitle = document.getElementById("tooltipTitle");
-const tooltipDesc = document.getElementById("tooltipDesc");
-
-document.querySelectorAll(".tile").forEach((tile) => {
-  tile.addEventListener("mouseenter", () => {
-    const skill = tile.getAttribute("data-skill");
-    const desc = tile.getAttribute("data-desc");
-
-    if (tooltip && skill && desc) {
-      tooltipTitle.textContent = skill;
-      tooltipDesc.textContent = desc;
-      tooltipBadge.textContent = "EXPERTISE NODE";
-      gsap.to(tooltip, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" });
-    }
-
-    // Highlight connecting lines
-    lines.forEach(l => l.classList.remove("active-line"));
-    for (const [keyClass, lineIds] of Object.entries(nodeLineMap)) {
-      if (tile.classList.contains(keyClass)) {
-        lineIds.forEach(id => {
-          const l = document.getElementById(id);
-          if (l) l.classList.add("active-line");
-        });
-      }
-    }
+// 3. 3D Subtle Tilt on Story & Skills Cards
+const interactiveCards = document.querySelectorAll(".se-card");
+interactiveCards.forEach((card) => {
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    gsap.to(card, {
+      rotationY: x * 6,
+      rotationX: -y * 6,
+      duration: 0.5,
+      transformPerspective: 1200,
+      ease: "power2.out"
+    });
   });
 
-  tile.addEventListener("mouseleave", () => {
-    lines.forEach(l => l.classList.remove("active-line"));
-    if (tooltip) {
-      tooltipBadge.textContent = "INTERACTIVE ECOSYSTEM";
-      tooltipTitle.textContent = "Skills & Architecture Ecosystem";
-      tooltipDesc.textContent = "Hover any node to inspect specialized frameworks and capabilities.";
-    }
+  card.addEventListener("mouseleave", () => {
+    gsap.to(card, {
+      rotationY: 0,
+      rotationX: 0,
+      duration: 0.9,
+      ease: "elastic.out(1, 0.6)"
+    });
   });
 });
 
@@ -126,65 +152,37 @@ tl.to(".site-header", { opacity: 1, duration: 0.8 }, 0)
     ease: "back.out(1.6)"
   }, 1.2);
 
-// ============ ECOSYSTEM CONSTELLATION ENTRANCE ============
+// ============ STORY & SKILLS ECOSYSTEM SCROLL ENTRANCE ============
 ScrollTrigger.create({
-  trigger: ".ecosystem-section",
+  trigger: ".story-ecosystem-section",
   start: "top 80%",
   once: true,
   onEnter: () => {
-    gsap.to(".tile", {
-      opacity: 1,
-      scale: 1,
-      duration: 1.2,
-      stagger: { each: 0.06, from: "center" },
-      ease: "elastic.out(1, 0.6)"
-    });
-    gsap.to(".constellation-lines path", {
-      strokeDashoffset: 0,
-      duration: 1.4,
-      stagger: 0.05,
-      ease: "power2.inOut"
-    });
-  }
-});
-
-// ============ CONSTELLATION 3D TILT ============
-const constellation = document.getElementById("constellation");
-const constellationInner = document.getElementById("constellationInner");
-
-if (constellation && constellationInner) {
-  constellation.addEventListener("mousemove", (e) => {
-    const rect = constellation.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    gsap.to(constellationInner, {
-      rotationY: x * 14,
-      rotationX: -y * 10,
-      duration: 0.8,
-      transformPerspective: 1500,
-      ease: "power2.out"
-    });
-  });
-
-  constellation.addEventListener("mouseleave", () => {
-    gsap.to(constellationInner, {
-      rotationY: 0,
-      rotationX: 0,
-      duration: 1.2,
-      ease: "elastic.out(1, 0.5)"
-    });
-  });
-}
-
-// ============ HERO SCROLL PARALLAX ============
-gsap.to(".constellation", {
-  y: 90,
-  scale: 0.93,
-  scrollTrigger: {
-    trigger: ".hero",
-    start: "top top",
-    end: "bottom top",
-    scrub: 1.2
+    gsap.fromTo(
+      ".se-header",
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }
+    );
+    gsap.fromTo(
+      ".story-card",
+      { opacity: 0, y: 40, scale: 0.96 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.9, delay: 0.1, ease: "power3.out" }
+    );
+    gsap.fromTo(
+      ".skills-card",
+      { opacity: 0, y: 40, scale: 0.96 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.9, delay: 0.2, ease: "power3.out" }
+    );
+    gsap.fromTo(
+      ".meta-item",
+      { opacity: 0, x: -15 },
+      { opacity: 1, x: 0, duration: 0.5, stagger: 0.08, delay: 0.35, ease: "power2.out" }
+    );
+    gsap.fromTo(
+      ".skill-pill",
+      { opacity: 0, scale: 0.6, y: 15 },
+      { opacity: 1, scale: 1, y: 0, duration: 0.6, stagger: { each: 0.02, from: "start" }, delay: 0.3, ease: "back.out(1.8)" }
+    );
   }
 });
 
@@ -237,7 +235,7 @@ function splitWords(selector) {
   });
 }
 
-splitWords(".ecosystem-title");
+splitWords(".se-main-title");
 splitWords(".projects-title");
 splitWords(".features-title");
 splitWords(".quote-text");
@@ -252,7 +250,7 @@ document.querySelectorAll(".final-cta-h2 .sword-inner").forEach((el) => {
 
 // Animate reveals on scroll
 const headings = [
-  { sel: ".ecosystem-title", trig: ".ecosystem-title" },
+  { sel: ".se-main-title", trig: ".se-main-title" },
   { sel: ".projects-title", trig: ".projects-title" },
   { sel: ".features-title", trig: ".features-title" },
   { sel: ".quote-text", trig: ".quote-text" },
@@ -554,6 +552,5 @@ function initSwarm(canvasId, opts) {
 }
 
 // Initialize all swarm canvases
-initSwarm("swarmCanvasHero",  { num: 140, connectDist: 160, speed: 0.45, repel: 130 }); // Hero background
-initSwarm("swarmCanvasAbout", { num: 90,  connectDist: 120, speed: 0.55, repel: 110 }); // About section
-initSwarm("swarmCanvas",      { num: 90,  connectDist: 120, speed: 0.55, repel: 110 }); // Experience section
+initSwarm("swarmCanvasHero", { num: 140, connectDist: 160, speed: 0.45, repel: 130 }); // Hero background
+initSwarm("swarmCanvas",     { num: 90,  connectDist: 120, speed: 0.55, repel: 110 }); // Experience section
