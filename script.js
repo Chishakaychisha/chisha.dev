@@ -422,19 +422,24 @@ window.addEventListener("load", () => {
   ScrollTrigger.refresh();
 });
 
-// ============ SWARM PARTICLE CANVAS ANIMATION ============
+// ============ HIGH-PERFORMANCE SWARM PARTICLE CANVAS ANIMATION ============
 function initSwarm(canvasId, opts) {
   const canvas = document.getElementById(canvasId);
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
-  const cfg = Object.assign({ num: 90, connectDist: 120, speed: 0.55, repel: 110 }, opts);
+  const cfg = Object.assign({ num: 75, connectDist: 130, speed: 0.5, repel: 100 }, opts);
 
   let W, H, particles;
   const mouse = { x: -9999, y: -9999 };
   const NUM = cfg.num;
   const CONNECT_DIST = cfg.connectDist;
+  const CONNECT_DIST_SQ = CONNECT_DIST * CONNECT_DIST;
   const SPEED = cfg.speed;
   const MOUSE_REPEL = cfg.repel;
+  const MOUSE_REPEL_SQ = MOUSE_REPEL * MOUSE_REPEL;
+
+  let isVisible = true;
+  let animId = null;
 
   function resize() {
     const rect = canvas.parentElement.getBoundingClientRect();
@@ -467,48 +472,49 @@ function initSwarm(canvasId, opts) {
   }
 
   function draw() {
+    if (!isVisible) {
+      animId = null;
+      return;
+    }
+
     ctx.clearRect(0, 0, W, H);
 
-    // Connecting lines
+    // Fast connecting lines with squared distance check
     for (let i = 0; i < particles.length; i++) {
+      const p1 = particles[i];
       for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < CONNECT_DIST) {
-          const alpha = (1 - dist / CONNECT_DIST) * 0.45;
+        const p2 = particles[j];
+        const dx = p1.x - p2.x;
+        const dy = p1.y - p2.y;
+        const distSq = dx * dx + dy * dy;
+        if (distSq < CONNECT_DIST_SQ) {
+          const dist = Math.sqrt(distSq);
+          const alpha = (1 - dist / CONNECT_DIST) * 0.4;
           ctx.strokeStyle = `rgba(255,255,255,${alpha})`;
-          ctx.lineWidth = 0.7;
+          ctx.lineWidth = 0.65;
           ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p2.x, p2.y);
           ctx.stroke();
         }
       }
     }
 
-    // Particles
-    for (const p of particles) {
+    // Particles rendering
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
       const mdx = p.x - mouse.x;
       const mdy = p.y - mouse.y;
-      const md = Math.sqrt(mdx * mdx + mdy * mdy);
-      if (md < MOUSE_REPEL && md > 0) {
+      const mdSq = mdx * mdx + mdy * mdy;
+      if (mdSq < MOUSE_REPEL_SQ && mdSq > 0) {
+        const md = Math.sqrt(mdSq);
         const force = (MOUSE_REPEL - md) / MOUSE_REPEL;
-        p.vx += (mdx / md) * force * 0.8;
-        p.vy += (mdy / md) * force * 0.8;
+        p.vx += (mdx / md) * force * 0.7;
+        p.vy += (mdy / md) * force * 0.7;
       }
 
-      const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
-      if (speed > SPEED * 3) {
-        p.vx = (p.vx / speed) * SPEED * 3;
-        p.vy = (p.vy / speed) * SPEED * 3;
-      }
-      p.vx *= 0.98;
-      p.vy *= 0.98;
-      if (speed < SPEED * 0.5) {
-        p.vx += (Math.random() - 0.5) * 0.04;
-        p.vy += (Math.random() - 0.5) * 0.04;
-      }
+      p.vx *= 0.985;
+      p.vy *= 0.985;
 
       p.x += p.vx;
       p.y += p.vy;
@@ -521,13 +527,10 @@ function initSwarm(canvasId, opts) {
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fillStyle = p.col + "0.85)";
-      ctx.shadowBlur = 8;
-      ctx.shadowColor = p.col + "0.6)";
       ctx.fill();
-      ctx.shadowBlur = 0;
     }
 
-    requestAnimationFrame(draw);
+    animId = requestAnimationFrame(draw);
   }
 
   // Mouse tracking
@@ -535,22 +538,39 @@ function initSwarm(canvasId, opts) {
     const rect = canvas.getBoundingClientRect();
     mouse.x = e.clientX - rect.left;
     mouse.y = e.clientY - rect.top;
-  });
+  }, { passive: true });
+
   canvas.parentElement.addEventListener("mouseleave", () => {
     mouse.x = -9999;
     mouse.y = -9999;
-  });
+  }, { passive: true });
 
   window.addEventListener("resize", () => {
     resize();
     createParticles();
-  });
+  }, { passive: true });
+
+  // Pause render loop when canvas is off-screen
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible && !animId) {
+          animId = requestAnimationFrame(draw);
+        } else if (!isVisible && animId) {
+          cancelAnimationFrame(animId);
+          animId = null;
+        }
+      });
+    }, { rootMargin: "100px" });
+    observer.observe(canvas);
+  }
 
   resize();
   createParticles();
-  draw();
+  animId = requestAnimationFrame(draw);
 }
 
-// Initialize all swarm canvases
-initSwarm("swarmCanvasHero", { num: 140, connectDist: 160, speed: 0.45, repel: 130 }); // Hero background
-initSwarm("swarmCanvas",     { num: 90,  connectDist: 120, speed: 0.55, repel: 110 }); // Experience section
+// Initialize swarm canvases with optimized particle counts
+initSwarm("swarmCanvasHero", { num: 75, connectDist: 135, speed: 0.42, repel: 110 }); // Hero background
+initSwarm("swarmCanvas",     { num: 55, connectDist: 110, speed: 0.45, repel: 90 });  // Experience section
