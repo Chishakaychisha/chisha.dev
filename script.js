@@ -423,3 +423,139 @@ if (yr) yr.textContent = new Date().getFullYear();
 window.addEventListener("load", () => {
   ScrollTrigger.refresh();
 });
+
+// ============ SWARM PARTICLE CANVAS ANIMATION ============
+(function initSwarm() {
+  const canvas = document.getElementById("swarmCanvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+
+  let W, H, particles, mouse = { x: -9999, y: -9999 };
+  const NUM = 90;
+  const CONNECT_DIST = 120;
+  const SPEED = 0.55;
+  const MOUSE_REPEL = 110;
+
+  function resize() {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    W = canvas.width = rect.width;
+    H = canvas.height = rect.height;
+  }
+
+  function randomColor() {
+    const palette = [
+      "rgba(200,236,200,", // mint
+      "rgba(251,197,54,",  // yellow
+      "rgba(220,208,238,", // purple
+      "rgba(255,255,255,", // white
+    ];
+    return palette[Math.floor(Math.random() * palette.length)];
+  }
+
+  function createParticles() {
+    particles = [];
+    for (let i = 0; i < NUM; i++) {
+      const col = randomColor();
+      particles.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - 0.5) * SPEED,
+        vy: (Math.random() - 0.5) * SPEED,
+        r: Math.random() * 2 + 1.2,
+        col: col,
+      });
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    // Draw connecting lines
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < CONNECT_DIST) {
+          const alpha = (1 - dist / CONNECT_DIST) * 0.45;
+          ctx.strokeStyle = `rgba(255,255,255,${alpha})`;
+          ctx.lineWidth = 0.7;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Draw and update particles
+    for (let p of particles) {
+      // Mouse repel
+      const mdx = p.x - mouse.x;
+      const mdy = p.y - mouse.y;
+      const md = Math.sqrt(mdx * mdx + mdy * mdy);
+      if (md < MOUSE_REPEL) {
+        const force = (MOUSE_REPEL - md) / MOUSE_REPEL;
+        p.vx += (mdx / md) * force * 0.8;
+        p.vy += (mdy / md) * force * 0.8;
+      }
+
+      // Speed cap
+      const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+      if (speed > SPEED * 3) {
+        p.vx = (p.vx / speed) * SPEED * 3;
+        p.vy = (p.vy / speed) * SPEED * 3;
+      }
+
+      // Friction
+      p.vx *= 0.98;
+      p.vy *= 0.98;
+
+      // Drift back to normal speed
+      if (speed < SPEED * 0.5) {
+        p.vx += (Math.random() - 0.5) * 0.04;
+        p.vy += (Math.random() - 0.5) * 0.04;
+      }
+
+      p.x += p.vx;
+      p.y += p.vy;
+
+      // Bounce off walls
+      if (p.x < 0) { p.x = 0; p.vx = Math.abs(p.vx); }
+      if (p.x > W) { p.x = W; p.vx = -Math.abs(p.vx); }
+      if (p.y < 0) { p.y = 0; p.vy = Math.abs(p.vy); }
+      if (p.y > H) { p.y = H; p.vy = -Math.abs(p.vy); }
+
+      // Draw particle
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.col + "0.85)";
+      ctx.shadowBlur = 8;
+      ctx.shadowColor = p.col + "0.6)";
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  // Mouse tracking relative to canvas
+  canvas.parentElement.addEventListener("mousemove", (e) => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+  canvas.parentElement.addEventListener("mouseleave", () => {
+    mouse.x = -9999;
+    mouse.y = -9999;
+  });
+
+  window.addEventListener("resize", () => {
+    resize();
+    createParticles();
+  });
+
+  resize();
+  createParticles();
+  draw();
+})();
