@@ -1,3 +1,43 @@
+// ============ PAGE LOADER CONTROLLER ============
+(function () {
+  const loader    = document.getElementById("pageLoader");
+  const bar       = document.getElementById("loaderBar");
+  const status    = document.getElementById("loaderStatus");
+
+  if (!loader) return;
+
+  const steps = [
+    { pct: 25,  label: "Loading styles...",  delay: 120  },
+    { pct: 55,  label: "Loading fonts...",   delay: 340  },
+    { pct: 80,  label: "Loading assets...",  delay: 600  },
+    { pct: 100, label: "Launching...",       delay: 900  },
+  ];
+
+  steps.forEach(({ pct, label, delay }) => {
+    setTimeout(() => {
+      if (bar)    bar.style.width = pct + "%";
+      if (status) status.textContent = label;
+    }, delay);
+  });
+
+  // Dismiss after all steps + a brief hold
+  function dismissLoader() {
+    setTimeout(() => {
+      loader.classList.add("hidden");
+      // Remove from DOM after fade finishes
+      loader.addEventListener("transitionend", () => loader.remove(), { once: true });
+    }, 1150);
+  }
+
+  // Fire on window load (all resources fetched) or after 3s max
+  if (document.readyState === "complete") {
+    dismissLoader();
+  } else {
+    window.addEventListener("load", dismissLoader, { once: true });
+    setTimeout(dismissLoader, 3000); // safety fallback
+  }
+})();
+
 gsap.registerPlugin(ScrollTrigger);
 
 // ============ CUSTOM MAGNETIC CURSOR ============
