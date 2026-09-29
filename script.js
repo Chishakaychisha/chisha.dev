@@ -425,17 +425,18 @@ window.addEventListener("load", () => {
 });
 
 // ============ SWARM PARTICLE CANVAS ANIMATION ============
-function initSwarm(canvasId) {
+function initSwarm(canvasId, opts) {
   const canvas = document.getElementById(canvasId);
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
+  const cfg = Object.assign({ num: 90, connectDist: 120, speed: 0.55, repel: 110 }, opts);
 
   let W, H, particles;
   const mouse = { x: -9999, y: -9999 };
-  const NUM = 90;
-  const CONNECT_DIST = 120;
-  const SPEED = 0.55;
-  const MOUSE_REPEL = 110;
+  const NUM = cfg.num;
+  const CONNECT_DIST = cfg.connectDist;
+  const SPEED = cfg.speed;
+  const MOUSE_REPEL = cfg.repel;
 
   function resize() {
     const rect = canvas.parentElement.getBoundingClientRect();
@@ -552,6 +553,7 @@ function initSwarm(canvasId) {
   draw();
 }
 
-// Initialize both swarm canvases
-initSwarm("swarmCanvasAbout");   // About / Professional Profile section
-initSwarm("swarmCanvas");        // Professional History / Experience section
+// Initialize all swarm canvases
+initSwarm("swarmCanvasHero",  { num: 140, connectDist: 160, speed: 0.45, repel: 130 }); // Hero background
+initSwarm("swarmCanvasAbout", { num: 90,  connectDist: 120, speed: 0.55, repel: 110 }); // About section
+initSwarm("swarmCanvas",      { num: 90,  connectDist: 120, speed: 0.55, repel: 110 }); // Experience section
