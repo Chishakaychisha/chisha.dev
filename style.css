@@ -194,34 +194,38 @@ body::before {
 
 .header-nav {
   display: flex;
-  gap: 28px;
+  gap: 10px;
   align-items: center;
+}
+.header-nav a,
+.header-nav .nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
   font-family: "Manrope", sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-}
-.header-nav a {
-  color: var(--ink-soft);
-  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  background: transparent;
+  border: 1.5px solid var(--ink);
+  border-radius: 12px;
   cursor: none;
-  transition: color 0.2s, transform 0.2s;
-  position: relative;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 0 var(--ink);
+  white-space: nowrap;
 }
-.header-nav a::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--ink);
-  transition: width 0.25s ease;
-}
-.header-nav a:hover {
+.header-nav a:hover,
+.header-nav .nav-link:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--ink);
+  background: rgba(15, 15, 15, 0.05);
   color: var(--ink);
 }
-.header-nav a:hover::after {
-  width: 100%;
+.header-nav a:active,
+.header-nav .nav-link:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 var(--ink);
 }
 
 .header-btn {
