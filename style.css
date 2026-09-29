@@ -745,6 +745,9 @@ body {
   gap: 36px;
   align-items: start;
 }
+.se-col {
+  min-width: 0;
+}
 
 /* Base Card */
 .se-card {
@@ -908,6 +911,7 @@ body {
   text-decoration: none;
   transition: color 0.2s, transform 0.2s;
   display: inline-block;
+  word-break: break-word;
 }
 .meta-link:hover {
   color: #ffe9a0;
@@ -2258,6 +2262,22 @@ body {
     gap: 28px;
     min-height: auto;
   }
+  
+  /* Ecosystem / About section */
+  .story-ecosystem-section {
+    padding: 50px 16px;
+  }
+  .se-card {
+    padding: 24px 16px;
+    border-radius: 20px;
+  }
+  .story-meta-list {
+    padding: 16px;
+  }
+  .meta-item {
+    gap: 12px;
+  }
+  
   .hero-portrait-card {
     max-width: 280px;
   }
