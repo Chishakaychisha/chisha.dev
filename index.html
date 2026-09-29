@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chisha K. Chisha — Web Developer &amp; IT Systems Specialist</title>
+  <meta name="description" content="Portfolio of Chisha K. Chisha, a Web Developer &amp; IT Systems Specialist from Lusaka, Zambia. Skilled in Python, JavaScript, React, PHP, Laravel, DPO Payment Integration, and Scalable Digital Platforms.">
+  <meta name="keywords" content="Chisha K Chisha, Web Developer Zambia, Lusaka Web Developer, Rockview University, ICU Zambia, React, Python, Laravel, PHP, DPO Payment">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'><polygon points='17,3 29,9 29,21 17,27 5,21 5,9' fill='%231a1a1a'/><polygon points='17,3 29,9 17,15 5,9' fill='%23ffd96a'/></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- GSAP & Plugins -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-1"></div>
+  <div class="ambient-2"></div>
+  <div class="ambient-3"></div>
+
+  <!-- Custom Magnetic Cursor -->
+  <div class="cursor"></div>
+  <div class="cursor-dot"></div>
+
+  <!-- Site Header -->
+  <header class="site-header" id="header">
+    <a href="#" class="logo" aria-label="Chisha Home">
+      <span class="logo-cube">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+          <defs>
+            <linearGradient id="cubeGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#3a3a3a" />
+              <stop offset="100%" stop-color="#0a0a0a" />
+            </linearGradient>
+          </defs>
+          <path d="M17 3 L29 9 L29 21 L17 27 L17 15 L5 9 Z" fill="url(#cubeGrad)" stroke="#000" stroke-width="0.5" />
+          <path d="M5 9 L17 15 L17 27 L5 21 Z" fill="#2a2a2a" stroke="#000" stroke-width="0.5" />
+          <path d="M17 3 L29 9 L17 15 L5 9 Z" fill="#ffd96a" stroke="#000" stroke-width="0.5" />
+        </svg>
+      </span>
+      <span class="logo-text">CHISHA<span class="logo-dot">.DEV</span></span>
+    </a>
+
+    <!-- Status Pill -->
+    <div class="status-pill">
+      <span class="status-dot"></span>
+      <span class="status-text">Available for Projects &bull; Lusaka, ZM</span>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="header-nav" aria-label="Main Navigation">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#ecosystem" class="nav-link">Ecosystem</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#services" class="nav-link">Pillars</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <!-- Action Button -->
+    <a href="#contact" class="header-btn" id="contactBtn">
+      Let's Talk
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14M13 6l6 6-6 6" />
+      </svg>
+    </a>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="hero">
+    <div class="hero-left">
+      <!-- Profile Badge with Picture -->
+      <div class="hero-author-card">
+        <div class="author-avatar-wrap">
+          <img src="assets/images/me.jpg" alt="Chisha K. Chisha" class="author-avatar">
+          <span class="avatar-online-dot" title="Available for Projects"></span>
+        </div>
+        <div class="author-details">
+          <span class="author-name">Chisha K. Chisha</span>
+          <span class="author-role">Web Developer &bull; MSc in ICT &bull; Lusaka, Zambia</span>
+        </div>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="title-line"><span class="title-inner">Building digital</span></span>
+        <span class="title-line"><span class="title-inner">systems that empower</span></span>
+        <span class="title-line"><span class="title-inner"><span class="accent-title">&amp; improve lives.</span></span></span>
+      </h1>
+
+      <p class="hero-desc">
+        Web Developer &amp; IT Systems Specialist with extensive experience building modern front-end and back-end web applications, institutional student portals, and seamless online payment workflows (DPO). Skilled in Python, React, JavaScript, PHP, Laravel, and MySQL.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#projects" class="cta-btn primary-cta">
+          Explore Projects
+          <span class="cta-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </span>
+        </a>
+        <a href="#experience" class="cta-btn-ghost">
+          <span>View Experience</span>
+        </a>
+        <a href="mailto:chishachisha05@gmail.com" class="cta-btn-ghost">
+          <span>Email Me</span>
+        </a>
+      </div>
+
+      <div class="hero-tech-strip">
+        <span class="strip-label">CORE TECHNOLOGIES &amp; WORKFLOWS</span>
+        <div class="tech-pills-row">
+          <span class="tpill">Python</span>
+          <span class="tpill">React &amp; JS</span>
+          <span class="tpill">PHP &amp; Laravel</span>
+          <span class="tpill">MySQL &amp; APIs</span>
+          <span class="tpill">DPO Payments</span>
+          <span class="tpill">GSAP Motion</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Right: Prominent Portrait Picture Card -->
+    <div class="hero-right">
+      <div class="hero-portrait-card">
+        <div class="portrait-floating-chip">
+          <span class="status-dot"></span>
+          <span>AVAILABLE FOR WORK</span>
+        </div>
+        <div class="portrait-inner">
+          <img src="assets/images/me.jpg" alt="Chisha K. Chisha — Web Developer" class="hero-portrait-img">
+          <div class="portrait-badge-bottom">
+            <div>
+              <div class="pbb-name">CHISHA K. CHISHA</div>
+              <div class="pbb-subtitle">Web Developer &bull; MSc ICT Researcher</div>
+            </div>
+            <span class="status-dot" title="Active"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Interactive Constellation Ecosystem Section (Right After Picture) -->
+  <section class="ecosystem-section" id="ecosystem">
+    <div class="ecosystem-head">
+      <div class="section-eyebrow">Interactive Architecture</div>
+      <h2 class="ecosystem-title">Skills &amp; Technology Ecosystem</h2>
+      <p class="ecosystem-desc">An interactive 3D map of modern technologies, payment gateways, and scalable architectures. Hover any node to inspect capabilities.</p>
+    </div>
+
+    <div class="ecosystem-container">
+      <div class="constellation-wrapper">
+        <div class="constellation-header">
+          <span class="constellation-tag">TECHNICAL ARCHITECTURE GRAPH</span>
+          <span class="constellation-sub">Hover nodes to reveal skill depth</span>
+        </div>
+
+        <div class="constellation" id="constellation">
+          <svg class="constellation-lines" viewBox="0 0 600 660" preserveAspectRatio="xMidYMid meet">
+            <!-- top branch -->
+            <path id="line-lock-mint" d="M 295 64 C 270 90, 220 110, 166 152" />
+            <path id="line-lock-yellow" d="M 305 64 C 330 90, 380 110, 434 152" />
+            <!-- top to center -->
+            <path id="line-mint-center" d="M 166 200 C 175 230, 230 260, 280 285" />
+            <path id="line-yellow-center" d="M 434 200 C 425 230, 370 260, 320 285" />
+            <!-- horizontal mid lines -->
+            <path id="line-cloud-center" d="M 76 305 C 130 305, 200 305, 248 302" />
+            <path id="line-thumb-center" d="M 524 305 C 470 305, 400 305, 352 302" />
+            <!-- center down -->
+            <path id="line-center-person" d="M 285 372 C 270 405, 240 440, 214 452" />
+            <path id="line-center-globe" d="M 315 372 C 330 405, 360 440, 386 452" />
+            <!-- pills to inner -->
+            <path id="line-cursor-person" d="M 110 437 C 145 442, 175 448, 214 452" />
+            <path id="line-thumbpill-globe" d="M 490 437 C 455 442, 425 448, 386 452" />
+            <!-- to hex -->
+            <path id="line-person-hex" d="M 214 502 C 235 540, 270 575, 300 603" />
+            <path id="line-globe-hex" d="M 386 502 C 365 540, 330 575, 300 603" />
+          </svg>
+
+          <div class="constellation-inner" id="constellationInner">
+            
+            <!-- 01: TOP LOCK PILL - Security, Auth & Data Audits -->
+            <div class="tile size-pill black tile-lock" data-skill="Security &amp; Data Audits" data-desc="Data protection, authentication, data accuracy, verification &amp; compliance across sensitive university &amp; client records">
+              <div class="tile-inner">
+                <div class="tile-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="5" y="11" width="14" height="10" rx="2" />
+                    <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- 02: MINT EXPAND - React & Frontend Systems -->
+            <div class="tile size-main mint tile-expand" data-skill="React &amp; Modern Frontend" data-desc="React, React Native, JavaScript (ES6+), responsive interfaces, student onboarding workflows &amp; interactive portals">
+              <div class="tile-inner">
+                <div class="tile-icon">
+                  <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="28" cy="28" r="22" stroke-opacity="0.15" />
+                    <path d="M14 14 L24 24 M14 14 L14 21 M14 14 L21 14" />
+                    <path d="M42 14 L32 24 M42 14 L42 21 M42 14 L35 14" />
+                    <path d="M14 42 L24 32 M14 42 L14 35 M14 42 L21 42" />
+                    <path d="M42 42 L32 32 M42 42 L42 35 M42 42 L35 42" />
+                  </svg>
+                </div>
+                <span class="tile-badge-label">React &amp; UI</span>
+              </div>
+            </div>
+
+            <!-- 03: YELLOW CHART - Python & Logic -->
+            <div class="tile size-main yellow tile-chart" data-skill="Python &amp; Data Logic" data-desc="Python backend scripting, automated workflows, data validation, algorithms &amp; reporting dashboards">
+              <div class="tile-inner">
+                <div class="tile-icon">
+                  <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="8" y="12" width="40" height="28" rx="2" />
+                    <line x1="28" y1="40" x2="28" y2="48" />
+                    <line x1="22" y1="48" x2="34" y2="48" />
+                    <line x1="16" y1="32" x2="16" y2="36" />
+                    <line x1="22" y1="26" x2="22" y2="36" />
+                    <line x1="28" y1="22" x2="28" y2="36" />
+                    <line x1="34" y1="28" x2="34" y2="36" />
+                    <line x1="40" y1="18" x2="40" y2="36" />
+                  </svg>
+                </div>
+                <span class="tile-badge-label">Python &amp; Logic</span>
+              </div>
+            </div>
+
+            <!-- 04: PURPLE CLOUD - DPO Payment & Gateway Workflows -->
+            <div class="tile size-main purple tile-cloud" data-skill="Payment Gateways &amp; DPO" data-desc="DPO payment integration, online fee collections, transaction reconciliation &amp; financial data security">
+              <div class="tile-inner">
+                <div class="tile-icon">
+                  <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 30 a8 8 0 0 1 4-15 a10 10 0 0 1 19 4 a6 6 0 0 1 0 11 Z" />
+                    <circle cx="18" cy="42" r="1.4" fill="currentColor" />
+                    <circle cx="26" cy="44" r="1.4" fill="currentColor" />
+                    <circle cx="34" cy="42" r="1.4" fill="currentColor" />
+                    <circle cx="22" cy="48" r="1.2" fill="currentColor" />
+                    <circle cx="30" cy="48" r="1.2" fill="currentColor" />
+                  </svg>
+                </div>
+                <span class="tile-badge-label">DPO Payments</span>
+              </div>
+            </div>
+
+            <!-- 05: BLACK DATABASE (CENTER) - PHP, Laravel, MySQL Core -->
+            <div class="tile size-big black tile-db" data-skill="PHP, Laravel &amp; MySQL" data-desc="Relational MySQL schema design, Laravel MVC systems, RESTful API endpoints &amp; institutional databases">
+              <div class="tile-inner">
+                <div class="tile-icon">
+                  <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <ellipse cx="28" cy="14" rx="14" ry="5" />
+                    <path d="M14 14 v14 a14 5 0 0 0 28 0 v-14" />
+                    <path d="M14 28 v14 a14 5 0 0 0 28 0 v-14" />
+                    <path d="M22 22 L34 34 M34 22 L22 34" stroke-opacity="0" />
+                  </svg>
+                </div>
+                <span class="tile-badge-label">Backend &amp; SQL</span>
+              </div>
+            </div>
+
+            <!-- 06: MINT THUMB / HAND - Mobile & Java/Kotlin -->
+            <div class="tile size-main mint tile-thumb" data-skill="Mobile: Java &amp; Android" data-desc="Android application development, Java &amp; Kotlin OOP principles, mobile lifecycles &amp; API synchronization">
+              <div class="tile-inner">
+                <div class="tile-icon">
+                  <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 28 L14 46 L20 46 L20 28 Z" />
+                    <path d="M20 30 L26 18 a3 3 0 0 1 5.5 2.5 L29 28 L40 28 a4 4 0 0 1 4 4.5 L42 42 a4 4 0 0 1 -4 4 L24 46" />
+                    <path d="M30 12 L32 16 M36 14 L36 18 M40 18 L37 20" stroke-width="1.6" />
+                  </svg>
+                </div>
+                <span class="tile-badge-label">Java &amp; Mobile</span>
+              </div>
+            </div>
+
+            <!-- 07: CURSOR PILL - GSAP & Interactive Micro-interactions -->
+            <div class="tile size-pill black tile-cursor" data-skill="GSAP &amp; Motion" data-desc="GSAP 3, ScrollTrigger, interactive feedback &amp; fluid animations for delightful web experiences">
+              <div class="tile-inner">
+                <div class="tile-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linejoin="round">
+                    <path d="M7 4 L7 18 L11 14 L14 20 L17 19 L14 13 L18 13 Z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- 08: YELLOW PERSON - UI/UX & Digital Design -->
+            <div class="tile size-main yellow tile-person" data-skill="UI/UX &amp; Graphic Design" data-desc="Adobe Photoshop, Illustrator, branding, wireframing, accessible layouts &amp; customer acquisition design">
+              <div class="tile-inner">
+                <div class="tile-icon">
+                  <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="28" cy="28" r="20" stroke-dasharray="6 4" />
+                    <circle cx="28" cy="22" r="6" />
+                    <path d="M16 40 a12 10 0 0 1 24 0" />
+                    <path d="M44 18 L48 18 L48 14" />
+                    <path d="M12 38 L8 38 L8 42" />
+                  </svg>
+                </div>
+                <span class="tile-badge-label">Design &amp; UI</span>
+              </div>
+            </div>
+
+            <!-- 09: PURPLE GLOBE - Full-Stack Web Platforms -->
+            <div class="tile size-main purple tile-globe" data-skill="Digital Platforms" data-desc="End-to-end client portals, institutional websites, WordPress custom systems &amp; web infrastructure">
+              <div class="tile-inner">
+                <div class="tile-icon">
+                  <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="28" cy="28" r="18" />
+                    <ellipse cx="28" cy="28" rx="18" ry="7" />
+                    <ellipse cx="28" cy="28" rx="7" ry="18" />
+                    <path d="M10 28 L46 28" />
+                    <path d="M28 10 L28 46" />
+                  </svg>
+                </div>
+                <span class="tile-badge-label">Web Platforms</span>
+              </div>
+            </div>
+
+            <!-- 10: THUMB UP PILL - Operational Reliability -->
+            <div class="tile size-pill black tile-thumbpill" data-skill="System Reliability" data-desc="Troubleshooting, uptime monitoring, operational delivery &amp; deadline-driven execution">
+              <div class="tile-inner">
+                <div class="tile-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 11v9a1 1 0 0 0 1 1h2v-10z" />
+                    <path d="M10 11l3-7a2 2 0 0 1 3.5 1.5L15.5 10H19a2 2 0 0 1 2 2.3l-1 6a2 2 0 0 1-2 1.7H10" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- 11: MINT HEXAGON - Performance Optimization -->
+            <div class="tile size-main mint tile-hex" data-skill="Performance Optimization" data-desc="Fast loading, query indexing, continuous system continuity &amp; user experience optimization">
+              <div class="tile-inner">
+                <div class="tile-icon">
+                  <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M28 6 L46 16 L46 38 L28 48 L10 38 L10 16 Z" />
+                    <circle cx="28" cy="6" r="2.5" fill="currentColor" />
+                    <circle cx="46" cy="16" r="2.5" fill="currentColor" />
+                    <circle cx="46" cy="38" r="2.5" fill="currentColor" />
+                    <circle cx="28" cy="48" r="2.5" fill="currentColor" />
+                    <circle cx="10" cy="38" r="2.5" fill="currentColor" />
+                    <circle cx="10" cy="16" r="2.5" fill="currentColor" />
+                    <circle cx="28" cy="27" r="3.5" fill="currentColor" />
+                    <path d="M28 27 L28 6 M28 27 L46 16 M28 27 L46 38 M28 27 L28 48 M28 27 L10 38 M28 27 L10 16" stroke-width="1.3" />
+                  </svg>
+                </div>
+                <span class="tile-badge-label">Optimization</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Dynamic Node Info Card Floating Tooltip -->
+          <div class="node-tooltip" id="nodeTooltip">
+            <div class="tooltip-badge" id="tooltipBadge">NODE SELECTED</div>
+            <h4 class="tooltip-title" id="tooltipTitle">Interactive Ecosystem</h4>
+            <p class="tooltip-desc" id="tooltipDesc">Hover any node to inspect specialized frameworks and capabilities.</p>
+          </div>
+
+          <!-- Sparkle decoration -->
+          <div class="sparkle">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2 L13.5 10.5 L22 12 L13.5 13.5 L12 22 L10.5 13.5 L2 12 L10.5 10.5 Z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Chisha Section with Real Portrait Photo -->
+  <section class="about-me-section" id="about">
+    <div class="about-grid">
+      <div class="about-photo-wrapper">
+        <div class="about-photo-frame">
+          <img src="assets/images/me.jpg" alt="Chisha K. Chisha — Web Developer" class="about-photo">
+          <div class="photo-floating-badge">
+            <div>
+              <div class="pfb-name">CHISHA K. CHISHA</div>
+              <div class="pfb-title">Web Developer &amp; MSc Researcher</div>
+            </div>
+            <span class="status-dot"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-info-col">
+        <div class="section-eyebrow">Professional Profile</div>
+        <h2>Engineering reliable, secure &amp; user-focused software.</h2>
+        <p class="about-bio-text">
+          Detail-oriented Web Developer with experience building modern front-end and back-end web applications, responsive user interfaces, and scalable digital platforms. Skilled in Python, JavaScript, PHP, Laravel, database-linked systems, API integration, and online payment solutions.
+        </p>
+        <p class="about-bio-text">
+          Experienced in transactional workflows, system troubleshooting, performance optimization, data accuracy, and cross-functional collaboration. Whether engineering institutional platforms or integrating secure online payment gateways, I deliver solutions that operate with precision and scale.
+        </p>
+
+        <!-- Credentials Grid -->
+        <div class="about-credentials">
+          <div class="cred-card">
+            <span class="cred-label">CURRENT EDUCATION</span>
+            <div class="cred-title">Master of Science in ICT</div>
+            <span class="author-role">Rockview University (Present)</span>
+          </div>
+
+          <div class="cred-card">
+            <span class="cred-label">ACADEMIC DEGREE</span>
+            <div class="cred-title">Bachelor of Arts in ICT</div>
+            <span class="author-role">Information and Communications University (2021–2024)</span>
+          </div>
+
+          <div class="cred-card">
+            <span class="cred-label">SPECIALIZED DOMAIN</span>
+            <div class="cred-title">Payments &amp; Digital Portals</div>
+            <span class="author-role">DPO Gateway, Student Onboarding, Dashboards</span>
+          </div>
+
+          <div class="cred-card">
+            <span class="cred-label">CONTACT DIRECT</span>
+            <div class="cred-title">+260 764 170 258</div>
+            <span class="author-role">+260 771 675 399</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="mailto:chishachisha05@gmail.com" class="cta-btn primary-cta">
+            Contact Chisha
+            <span class="cta-arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </span>
+          </a>
+          <a href="https://www.linkedin.com/in/chisha-chisha-981316209" target="_blank" rel="noopener noreferrer" class="cta-btn-ghost">
+            <span>Connect on LinkedIn</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Technology Stack Bar -->
+  <section class="workspace" id="skills">
+    <h3 class="workspace-label">Proficiency Stack</h3>
+    <div class="feature-pills">
+      <div class="fpill round" title="Frontend: React &amp; JavaScript">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f0f0f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6" />
+          <polyline points="8 6 2 12 8 18" />
+        </svg>
+      </div>
+      <div class="fpill wide-yellow" title="Python &amp; Logic Engine">
+        <div class="pill-content">
+          <span class="pill-kicker">AUTOMATION &amp; DATA</span>
+          <span class="pill-name">Python &amp; APIs</span>
+        </div>
+      </div>
+      <div class="fpill wide-purple" title="Payments &amp; Backend Systems">
+        <div class="pill-content">
+          <span class="pill-kicker">FINTECH &amp; CMS</span>
+          <span class="pill-name">PHP, Laravel &amp; DPO</span>
+        </div>
+      </div>
+      <div class="fpill wide-mint" title="Databases &amp; Architecture">
+        <div class="pill-content">
+          <span class="pill-kicker">DATA CONTINUITY</span>
+          <span class="pill-name">MySQL &amp; Dashboards</span>
+        </div>
+      </div>
+    </div>
+    <a href="#projects" class="learn-more">Explore live platforms &rarr;</a>
+  </section>
+
+  <!-- Professional Experience Timeline Section -->
+  <section class="experience-section" id="experience">
+    <div class="projects-head">
+      <div>
+        <div class="section-eyebrow">Professional History</div>
+        <h2 class="projects-title">Proven track record in institutions &amp; digital agencies.</h2>
+      </div>
+      <div class="projects-meta">
+        EXPERIENCE TIMELINE<br>
+        2021 — PRESENT<br>
+        LUSAKA, ZAMBIA
+      </div>
+    </div>
+
+    <div class="experience-timeline">
+      <!-- Role 1 -->
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <div>
+            <h3 class="timeline-role">Programming Officer &amp; Web Developer</h3>
+            <span class="timeline-org">Rockview University &bull; Lusaka, Zambia</span>
+          </div>
+          <span class="timeline-badge">Institutional Systems</span>
+        </div>
+        <ul class="timeline-list">
+          <li>Designed, developed and maintained secure web-based systems supporting student onboarding, registration and administrative operations.</li>
+          <li>Integrated and supported online payment workflows, including DPO payment methods, for tuition and institutional fee transactions.</li>
+          <li>Ensured accuracy, integrity and consistency of student and financial-related data across interconnected databases.</li>
+          <li>Collaborated with finance, academic and administrative departments to support system uptime, continuity and performance optimization.</li>
+        </ul>
+      </div>
+
+      <!-- Role 2 -->
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <div>
+            <h3 class="timeline-role">Technology Officer</h3>
+            <span class="timeline-org">Genius Education Zambia &bull; Lusaka, Zambia</span>
+          </div>
+          <span class="timeline-badge">Edu-Tech &bull; E-Learning</span>
+        </div>
+        <ul class="timeline-list">
+          <li>Managed and maintained web-based systems and digital platforms supporting educational and student revision services.</li>
+          <li>Developed and updated website features, responsive UI designs and user experience improvements for high school students.</li>
+          <li>Assisted with online tools, APIs and payment solutions; served as a Science Fair Judge and mentor to early-career developers.</li>
+        </ul>
+      </div>
+
+      <!-- Role 3 -->
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <div>
+            <h3 class="timeline-role">Founder &amp; Lead Developer</h3>
+            <span class="timeline-org">ActiveVision Digital Agency</span>
+          </div>
+          <span class="timeline-badge">Agency &bull; Client Solutions</span>
+        </div>
+        <ul class="timeline-list">
+          <li>Delivered end-to-end digital solutions, including custom web platforms, onboarding pages, and client management portals.</li>
+          <li>Implemented online payment workflows and transaction-support features for client acquisition and business operations.</li>
+          <li>Designed digital marketing materials and graphics using Adobe Photoshop and Illustrator.</li>
+        </ul>
+      </div>
+
+      <!-- Role 4 -->
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <div>
+            <h3 class="timeline-role">Researcher &amp; Full-Stack Web Developer</h3>
+            <span class="timeline-org">Zambia Research &amp; Development Centre (ZRDC) / ICU Zambia</span>
+          </div>
+          <span class="timeline-badge">Research &amp; Development</span>
+        </div>
+        <ul class="timeline-list">
+          <li>Conducted structured research, data collection, and developed digital tools including an institutional student portal application.</li>
+          <li>Contributed to the Information and Communications University main website development and IT system enhancements.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects Section with Real Screenshots -->
+  <section class="projects-section" id="projects">
+    <div class="projects-head">
+      <div>
+        <div class="section-eyebrow">Selected Project Deliverables</div>
+        <h2 class="projects-title">Real websites &amp; portals built for organizations.</h2>
+      </div>
+      <div class="projects-meta">
+        SHOWCASING LIVE<br>
+        PRODUCTION SYSTEMS<br>
+        ZAMBIA &amp; ONLINE
+      </div>
+    </div>
+
+    <div class="projects-grid">
+      <!-- Project 1: Genius Education Zambia -->
+      <article class="project-card">
+        <div class="project-preview">
+          <span class="project-category-tag">EDU-TECH &bull; E-LEARNING</span>
+          <img src="assets/images/genius.png" alt="Genius Education Zambia Website" class="project-img-cover">
+        </div>
+
+        <div class="project-content">
+          <div class="project-top">
+            <span class="project-idx">01</span>
+            <div class="project-links">
+              <a href="https://6pointsgenius.com/" target="_blank" rel="noopener noreferrer" class="p-link" title="Open Live Site" aria-label="Visit Genius Education Zambia">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Genius Education Zambia</h3>
+          <p class="project-desc">A full-featured educational technology platform featuring digital e-learning resources, academic syllabus guides, student registration, and interactive revision material.</p>
+          <div class="project-tags">
+            <span>E-Learning</span>
+            <span>JavaScript</span>
+            <span>PHP &amp; MySQL</span>
+            <span>Responsive UI</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2: ICU Zambia -->
+      <article class="project-card">
+        <div class="project-preview">
+          <span class="project-category-tag">UNIVERSITY &bull; ACADEMIC PORTAL</span>
+          <img src="assets/images/icu.png" alt="Information and Communications University Zambia" class="project-img-cover">
+        </div>
+
+        <div class="project-content">
+          <div class="project-top">
+            <span class="project-idx">02</span>
+            <div class="project-links">
+              <a href="https://www.icuzambia.net/" target="_blank" rel="noopener noreferrer" class="p-link" title="Open Live Site" aria-label="Visit ICU Zambia">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">ICU Zambia Main Portal</h3>
+          <p class="project-desc">Institutional portal for the Information and Communications University Zambia, presenting comprehensive academic programmes, faculties, admissions, and student resource hubs.</p>
+          <div class="project-tags">
+            <span>Institutional Web</span>
+            <span>Portal Architecture</span>
+            <span>MySQL</span>
+            <span>APIs</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3: ACTiveVision Zambia Agency -->
+      <article class="project-card">
+        <div class="project-preview">
+          <span class="project-category-tag">AGENCY &bull; DARK UI &bull; CREATIVE</span>
+          <img src="assets/images/act.png" alt="ACTiveVision Zambia Web Agency" class="project-img-cover">
+        </div>
+
+        <div class="project-content">
+          <div class="project-top">
+            <span class="project-idx">03</span>
+            <div class="project-links">
+              <a href="https://activevisionzambia.000webhostapp.com/" target="_blank" rel="noopener noreferrer" class="p-link" title="Open Live Site" aria-label="Visit ACTiveVision Zambia">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">ACTiveVision Digital Agency</h3>
+          <p class="project-desc">A dark-themed creative web development agency website engineered with sleek animations, clear service presentations, and responsive lead-generation workflows.</p>
+          <div class="project-tags">
+            <span>Creative Agency</span>
+            <span>Dark Theme</span>
+            <span>CSS3 Animations</span>
+            <span>JavaScript</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 4: StudyStorm E-Learning -->
+      <article class="project-card">
+        <div class="project-preview">
+          <span class="project-category-tag">EDUCATION &bull; HIGH SCHOOL PLATFORM</span>
+          <img src="assets/images/studystorm.png" alt="StudyStorm High School E-Learning" class="project-img-cover">
+        </div>
+
+        <div class="project-content">
+          <div class="project-top">
+            <span class="project-idx">04</span>
+            <div class="project-links">
+              <span class="p-link" title="StudyStorm Web App">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </span>
+            </div>
+          </div>
+          <h3 class="project-title">StudyStorm E-Learning Platform</h3>
+          <p class="project-desc">High school educational platform dedicated to past exam papers, study guides, and subject-specific revision modules to improve academic performance in Zambia.</p>
+          <div class="project-tags">
+            <span>Edu-Tech</span>
+            <span>Revision Tools</span>
+            <span>Interactive Web</span>
+            <span>PHP &amp; MySQL</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 5: Yumbee Products Showcase -->
+      <article class="project-card">
+        <div class="project-preview">
+          <span class="project-category-tag">COMMERCIAL &bull; BRAND SHOWCASE</span>
+          <img src="assets/images/yum.png" alt="Yumbee Products Showcase" class="project-img-cover">
+        </div>
+
+        <div class="project-content">
+          <div class="project-top">
+            <span class="project-idx">05</span>
+            <div class="project-links">
+              <a href="https://yumbeetestwebsite.netlify.app/" target="_blank" rel="noopener noreferrer" class="p-link" title="Open Live Site" aria-label="Visit Yumbee Products">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Yumbee Products Showcase</h3>
+          <p class="project-desc">Digital showcase and product catalog for Yumbee food production, presenting product packaging, nutritional details, and retail distribution partnerships.</p>
+          <div class="project-tags">
+            <span>Brand Website</span>
+            <span>Netlify</span>
+            <span>HTML5/CSS3</span>
+            <span>Brand Identity</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 6: Rockview University Web & DPO Gateway -->
+      <article class="project-card">
+        <div class="project-preview" style="background: linear-gradient(135deg, #1f2b38 0%, #0d141d 100%);">
+          <span class="project-category-tag">FINTECH &bull; DPO PAYMENT GATEWAY</span>
+          <div class="preview-mockup" style="max-width: 320px;">
+            <div class="mockup-header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="mockup-url">rockview.edu.zm/payments</span>
+            </div>
+            <div class="mockup-body" style="color: #fff; text-align: center; padding: 12px 0;">
+              <span class="mock-badge" style="background: #22c55e; color: #fff;">DPO GATEWAY INTEGRATED</span>
+              <h4 style="margin: 8px 0; font-size: 15px;">Tuition &amp; Fees Engine</h4>
+              <div class="mock-btn" style="background: var(--yellow); color: #000;">Secure Checkout Verified</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-content">
+          <div class="project-top">
+            <span class="project-idx">06</span>
+            <div class="project-links">
+              <span class="p-link" title="Institutional Gateway">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                  <line x1="1" y1="10" x2="23" y2="10"></line>
+                </svg>
+              </span>
+            </div>
+          </div>
+          <h3 class="project-title">Rockview University DPO Payments</h3>
+          <p class="project-desc">Engineered and integrated secure online transaction workflows via DPO payment methods for student tuition, registration fees, and real-time reconciliation reporting.</p>
+          <div class="project-tags">
+            <span>DPO Payment</span>
+            <span>API Integration</span>
+            <span>Financial Security</span>
+            <span>PHP &amp; MySQL</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Core Services & Pillars Section -->
+  <section class="features" id="services">
+    <div class="features-head">
+      <div>
+        <div class="section-eyebrow">Operational Excellence</div>
+        <h2 class="features-title">Three pillars. Zero compromise. Built to improve lives.</h2>
+      </div>
+      <div class="features-meta">
+        MODERN STANDARDS<br>
+        SECURITY &bull; DATA &bull; PERFORMANCE<br>
+        LUSAKA TO GLOBAL
+      </div>
+    </div>
+
+    <div class="feature-cards">
+      <!-- Pillar 1 -->
+      <div class="feature-card fc-mint">
+        <div class="fc-num">01 — Full-Stack &amp; Payment Workflows</div>
+        <h3>Transactional stability &amp; DPO gateway mastery.</h3>
+        <p>Expertise in integrating secure payment gateways, managing online transaction workflows, and maintaining data reconciliation between web applications and accounting databases.</p>
+        <div class="fc-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+            <line x1="6" y1="6" x2="6.01" y2="6"></line>
+            <line x1="6" y1="18" x2="6.01" y2="18"></line>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Pillar 2 -->
+      <div class="feature-card fc-yellow">
+        <div class="fc-num">02 — Responsive Frontend &amp; UX</div>
+        <h3>Fluid experiences powered by React &amp; GSAP.</h3>
+        <p>Combining modern JavaScript, React, and CSS to construct clean, accessible interfaces. From institutional student portals to creative dark agency themes, every viewport is polished.</p>
+        <div class="fc-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Pillar 3 -->
+      <div class="feature-card fc-purple">
+        <div class="fc-num">03 — Data Accuracy &amp; System Continuity</div>
+        <h3>Audited integrity &amp; maximum uptime.</h3>
+        <p>Background in database-linked systems, data verification, structured reporting, and system troubleshooting ensuring mission-critical institutional operations run seamlessly.</p>
+        <div class="fc-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy Quote Section -->
+  <section class="quote-section">
+    <span class="quote-mark">"</span>
+    <blockquote class="quote-text">
+      I am passionate about building excellent software that improves lives, brings ideas to reality, and solves real-world challenges with clean code.
+    </blockquote>
+    <div class="quote-author">&mdash; Chisha K. Chisha, Web Developer &amp; MSc Researcher</div>
+  </section>
+
+  <!-- Interactive Contact Section -->
+  <section class="final-cta" id="contact">
+    <div class="final-cta-card">
+      <span class="orb orb-1"></span>
+      <span class="orb orb-2"></span>
+
+      <div class="cta-header-area">
+        <h2 class="final-cta-h2">Let’s collaborate &amp; bring your ideas to <span class="accent">life.</span></h2>
+        <p>Looking for a dedicated web developer for an institutional web platform, payment gateway integration, full-stack application, or technical consulting? Let's connect.</p>
+      </div>
+
+      <!-- Contact Form & Info Grid -->
+      <div class="contact-interactive-grid">
+        <!-- Direct Channels -->
+        <div class="contact-channels">
+          <div class="channel-card">
+            <span class="channel-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </span>
+            <div>
+              <span class="channel-label">DIRECT EMAIL</span>
+              <a href="mailto:chishachisha05@gmail.com" class="channel-value">chishachisha05@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="channel-card">
+            <span class="channel-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </span>
+            <div>
+              <span class="channel-label">PHONE NUMBERS</span>
+              <span class="channel-value">+260 764 170 258 &bull; +260 771 675 399</span>
+            </div>
+          </div>
+
+          <div class="channel-card">
+            <span class="channel-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </span>
+            <div>
+              <span class="channel-label">LINKEDIN PROFILE</span>
+              <a href="https://www.linkedin.com/in/chisha-chisha-981316209" target="_blank" rel="noopener noreferrer" class="channel-value">linkedin.com/in/chisha-chisha</a>
+            </div>
+          </div>
+
+          <div class="channel-card">
+            <span class="channel-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+            </span>
+            <div>
+              <span class="channel-label">GITHUB REPOSITORIES</span>
+              <a href="https://github.com/Chishakaychisha" target="_blank" rel="noopener noreferrer" class="channel-value">github.com/Chishakaychisha</a>
+            </div>
+          </div>
+
+          <div class="channel-card">
+            <span class="channel-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </span>
+            <div>
+              <span class="channel-label">LOCATION</span>
+              <span class="channel-value">Lusaka, Zambia (Available Worldwide)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <form class="contact-form" id="contactForm" onsubmit="event.preventDefault(); handleFormSubmit();">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="userName">YOUR NAME</label>
+              <input type="text" id="userName" placeholder="e.g. John Banda" required>
+            </div>
+            <div class="form-group">
+              <label for="userEmail">EMAIL ADDRESS</label>
+              <input type="email" id="userEmail" placeholder="e.g. john@example.com" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="projectType">PROJECT SCOPE</label>
+            <select id="projectType">
+              <option value="portal">Student Portal or Institutional Web System</option>
+              <option value="payments">DPO / Online Payment Gateway Integration</option>
+              <option value="react-python">React &amp; Python Web Application</option>
+              <option value="agency-site">Agency or Commercial Brand Website</option>
+              <option value="mobile">Android / Mobile App Development</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="userMessage">PROJECT DETAILS</label>
+            <textarea id="userMessage" rows="4" placeholder="Tell me about what you are planning to build, goals, and timeline..." required></textarea>
+          </div>
+
+          <button type="submit" class="cta-btn submit-btn" id="submitBtn">
+            Send Message Directly
+            <span class="cta-arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </span>
+          </button>
+          <div class="form-feedback" id="formFeedback"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>CHISHA K. CHISHA<span class="logo-dot">.DEV</span></h3>
+        <p>Web Developer &amp; Technology Officer from Lusaka, Zambia. Passionate about building excellent software that improves lives.</p>
+        <div class="footer-socials">
+          <a href="mailto:chishachisha05@gmail.com">Email Me</a>
+          <a href="https://github.com/Chishakaychisha" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/chisha-chisha-981316209" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://chishachishaportfolio.netlify.app/" target="_blank" rel="noopener noreferrer">Original Portfolio</a>
+          <a href="tel:+260764170258">+260 764 170 258</a>
+        </div>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="#about">About</a>
+          <a href="#ecosystem">Constellation</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Live Work</a>
+          <a href="#services">Pillars</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Core Expertise</h4>
+          <a href="#ecosystem">React &amp; JavaScript</a>
+          <a href="#ecosystem">Python &amp; Logic</a>
+          <a href="#ecosystem">PHP &amp; Laravel</a>
+          <a href="#ecosystem">DPO Payment Workflows</a>
+          <a href="#ecosystem">MySQL &amp; Dashboards</a>
+        </div>
+        <div class="footer-col">
+          <h4>Current Role</h4>
+          <span class="footer-status-tag">Rockview University</span>
+          <span class="footer-timestamp" id="footerTime">Lusaka, Zambia (CAT / UTC+2)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; <span id="currentYear">2026</span> Chisha K. Chisha. All rights reserved.</span>
+      <a href="#header" class="back-to-top">
+        Back to top &uarr;
+      </a>
+    </div>
+  </footer>
+
+  <!-- Application Logic & GSAP Orchestration -->
+  <script src="./script.js"></script>
+</body>
+</html>
