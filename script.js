@@ -574,3 +574,30 @@ function initSwarm(canvasId, opts) {
 // Initialize swarm canvases with optimized particle counts
 initSwarm("swarmCanvasHero", { num: 75, connectDist: 135, speed: 0.42, repel: 110 }); // Hero background
 initSwarm("swarmCanvas",     { num: 55, connectDist: 110, speed: 0.45, repel: 90 });  // Experience section
+
+// ============ MOBILE HAMBURGER MENU ============
+const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+const mobileNavOverlay = document.getElementById("mobileNavOverlay");
+
+if (mobileMenuBtn && mobileNavOverlay) {
+  mobileMenuBtn.addEventListener("click", () => {
+    mobileMenuBtn.classList.toggle("active");
+    mobileNavOverlay.classList.toggle("open");
+    document.body.style.overflow = mobileNavOverlay.classList.contains("open") ? "hidden" : "";
+  });
+
+  // Close menu when a link is clicked
+  mobileNavOverlay.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenuBtn.classList.remove("active");
+      mobileNavOverlay.classList.remove("open");
+      document.body.style.overflow = "";
+    });
+  });
+}
+
+// Reduce particle count on mobile for performance
+if (window.innerWidth < 700) {
+  // Already initialized with default counts; on very small screens
+  // the IntersectionObserver will handle pausing when off-screen
+}
